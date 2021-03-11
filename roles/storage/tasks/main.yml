@@ -1,0 +1,10 @@
+---
+- name: Add mount points to /etc/fstab
+  mount:
+    path: '{{ item.path }}'
+    src: '{{ item.src }}'
+    fstype: '{{ item.fstype }}'
+    opts: '{{ item.opts | default("") }}'
+    state: mounted
+  with_items: '{{ storage_devices }}'
+  when: storage_devices is iterable and storage_devices | length > 0

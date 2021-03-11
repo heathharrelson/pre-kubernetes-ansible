@@ -1,0 +1,7 @@
+---
+storage_devices:
+  # UUID=3e61c70b-c4e4-4ea7-8288-0078b78cc1b0
+  - path: /var/lib/longhorn
+    src: LABEL=longhorn
+    fstype: xfs
+    opts: defaults

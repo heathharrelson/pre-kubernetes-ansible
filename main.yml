@@ -1,0 +1,45 @@
+---
+- hosts: all
+  become: yes
+
+  pre_tasks:
+    - name: update apt caches
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+  roles:
+    - storage
+    - geerlingguy.nfs
+
+  tasks:
+    - name: install base packages
+      apt:
+        pkg:
+          - curl
+          - gawk
+          - grep
+          - jq
+          - unzip
+          - util-linux
+        state: present
+
+    - name: install longhorn dependencies
+      apt:
+        pkg:
+          - open-iscsi
+        state: present
+
+    - name: enable iscsid daemon
+      service:
+        name: iscsid
+        enabled: yes
+        state: started
+
+    - name: install build tooling
+      apt:
+        pkg:
+          - build-essential
+          - git
+          - golang
+        state: present

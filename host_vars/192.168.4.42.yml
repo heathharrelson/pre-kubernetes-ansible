@@ -1,0 +1,8 @@
+---
+storage_devices:
+  - path: /cluster-data
+    src: UUID=169d8a3d-96f0-4d2d-aa75-a8e81003e7cb
+    fstype: ext4
+    opts: defaults,nosuid,nodev,nofail
+nfs_exports:
+  - /cluster-data    10.1.1.0/16(rw,sync,root_squash)
