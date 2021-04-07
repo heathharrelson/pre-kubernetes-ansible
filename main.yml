@@ -41,6 +41,12 @@
         enabled: yes
         state: started
 
+    - name: disable snapd
+      service:
+        name: snapd
+        enabled: no
+        state: stopped
+
     - name: install build tooling
       apt:
         pkg:
