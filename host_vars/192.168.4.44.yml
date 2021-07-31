@@ -1,7 +1,6 @@
 ---
 storage_devices:
-  # UUID=bb5da63c-381e-476c-a03e-802837099182
-  - path: /var/lib/longhorn
-    src: LABEL=longhorn
+  - path: /k8sdata
+    src: LABEL=k8sdata
     fstype: xfs
     opts: defaults
