@@ -29,23 +29,11 @@
           - util-linux
         state: present
 
-    - name: install longhorn dependencies
+    - name: remove snapd
       apt:
-        pkg:
-          - open-iscsi
-        state: present
-
-    - name: enable iscsid daemon
-      service:
-        name: iscsid
-        enabled: yes
-        state: started
-
-    - name: disable snapd
-      service:
-        name: snapd
-        enabled: no
-        state: stopped
+        pkg: snapd
+        state: absent
+        purge: yes
 
     - name: install build tooling
       apt:
