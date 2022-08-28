@@ -1,6 +1,0 @@
----
-storage_devices:
-  - path: /k8sdata
-    src: LABEL=k8sdata
-    fstype: xfs
-    opts: defaults
