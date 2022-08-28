@@ -37,6 +37,20 @@
         state: absent
         purge: yes
 
+    - name: install iscsi
+      apt:
+        pkg:
+          # needed for iSCSI drivers
+          - linux-modules-extra-raspi
+          - open-iscsi
+        state: present
+
+    - name: enable iscsi daemon
+      service:
+        name: iscsid
+        enabled: yes
+        state: started
+
     - name: install build tooling
       apt:
         pkg:
