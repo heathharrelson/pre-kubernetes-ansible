@@ -1,8 +1,3 @@
 ---
-storage_devices:
-  - path: /cluster-data
-    src: LABEL=cluster-data
-    fstype: ext4
-    opts: defaults,nosuid,nodev,nofail
 nfs_exports:
   - /cluster-data    10.1.1.0/16(rw,sync,root_squash)
