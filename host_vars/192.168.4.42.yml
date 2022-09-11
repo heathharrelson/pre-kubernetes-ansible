@@ -1,3 +1,4 @@
 ---
+create_data_dir: false
 nfs_exports:
   - /cluster-data    10.1.1.0/16(rw,sync,root_squash)

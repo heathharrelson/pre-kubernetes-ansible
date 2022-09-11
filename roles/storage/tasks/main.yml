@@ -8,3 +8,12 @@
     state: mounted
   with_items: '{{ storage_devices }}'
   when: storage_devices is iterable and storage_devices | length > 0
+
+- name: create /data directory
+  file:
+    path: /data
+    owner: root
+    group: root
+    mode: '0755'
+    state: directory
+  when: create_data_dir

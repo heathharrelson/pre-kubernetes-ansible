@@ -1,3 +1,4 @@
 ---
 storage_devices: []
 nfs_exports: []
+create_data_dir: true
